@@ -1,0 +1,17 @@
+version: "1"
+
+services:  
+  timething:
+    container_name: TimeThing
+    restart: unless-stopped
+    build: './TimeThing'
+    ports:
+      - 3100:3100
+    networks:
+      - main
+    volumes:
+      - ./public:/app/public/
+
+networks:
+  main:
+    driver: bridge
